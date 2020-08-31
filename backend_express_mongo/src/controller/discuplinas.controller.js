@@ -1,4 +1,4 @@
-const DisciplinaModel = require("../models/disciplinas.model");
+const DisciplinaModel = require('../models/disciplinas.model');
 
 class Disciplina {
   async create(req, res) {
@@ -14,7 +14,7 @@ class Disciplina {
   }
 
   async update(req, res) {
-    await DisciplinaModel.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    await DisciplinaModel.findOneAndUpdate(req.params.id, req.body, {
       new: true,
     })
       .then((response) => {
@@ -43,7 +43,7 @@ class Disciplina {
         if (response) {
           return res.status(200).json(response);
         } else {
-          return res.status(400).json("Disciplina nao existe");
+          return res.status(400).json('Disciplina nao existe');
         }
       })
       .catch((error) => {
@@ -57,7 +57,7 @@ class Disciplina {
         return res.status(200).json(response);
       })
       .catch((error) => {
-        return res.status(500).json(error, "Erro ao deletar tarefa");
+        return res.status(500).json(error, 'Erro ao deletar tarefa');
       });
   }
 }
